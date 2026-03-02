@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.foodexpress</groupId>
-	<artifactId>webflux</artifactId>
+	<artifactId>exercices</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>webflux</name>
-	<description>webflux</description>
+	<name>exercices</name>
+	<description>exercices</description>
 	<url/>
 	<licenses>
 		<license/>

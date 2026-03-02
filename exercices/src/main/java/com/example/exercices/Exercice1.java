@@ -1,4 +1,4 @@
-package com.foodexpress.webflux.exercices;
+package com.example.exercices;
 
 import reactor.core.publisher.Flux;
 

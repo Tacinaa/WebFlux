@@ -1,10 +1,10 @@
-package com.foodexpress.webflux;
+package com.example.exercices;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class WebfluxApplicationTests {
+class ExercicesApplicationTests {
 
 	@Test
 	void contextLoads() {

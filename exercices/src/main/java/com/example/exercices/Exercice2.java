@@ -1,6 +1,6 @@
-package com.foodexpress.webflux.exercices;
-import reactor.core.publisher.Mono;
+package com.example.exercices;
 
+import reactor.core.publisher.Mono;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Exercice2 {
