@@ -13,7 +13,7 @@ public class DemoRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        ProductRepository repo = new ProductRepository(0.0); // 0% erreurs pour commencer
+        ProductRepository repo = new ProductRepository(0.0);
         OrderService service = new OrderService(repo);
 
         OrderRequest request = new OrderRequest(
