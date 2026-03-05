@@ -1,4 +1,4 @@
-package com.example.exercices;
+package com.example.exercices.exercice4;
 
 import reactor.core.publisher.Mono;
 import java.time.Duration;

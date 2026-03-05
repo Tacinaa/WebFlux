@@ -1,4 +1,4 @@
-package com.example.exercices;
+package com.example.exercices.exercice1;
 
 import reactor.core.publisher.Flux;
 

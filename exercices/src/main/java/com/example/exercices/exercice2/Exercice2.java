@@ -1,4 +1,4 @@
-package com.example.exercices;
+package com.example.exercices.exercice2;
 
 import reactor.core.publisher.Mono;
 import java.util.concurrent.atomic.AtomicInteger;
