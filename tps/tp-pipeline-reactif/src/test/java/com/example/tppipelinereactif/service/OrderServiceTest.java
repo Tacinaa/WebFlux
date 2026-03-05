@@ -4,6 +4,7 @@ import com.example.tppipelinereactif.model.OrderRequest;
 import com.example.tppipelinereactif.model.OrderStatus;
 import com.example.tppipelinereactif.repository.ProductRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import reactor.test.StepVerifier;
 import java.math.BigDecimal;
@@ -21,6 +22,7 @@ class OrderServiceTest {
     }
 
     @Test
+    @DisplayName("Doit créer une commande COMPLETED avec 2 produits valides et le total correct")
     void test_processOrderSuccess() {
 
         OrderRequest request = new OrderRequest(
@@ -39,6 +41,7 @@ class OrderServiceTest {
     }
 
     @Test
+    @DisplayName("Doit ignorer les IDs invalides, vides ou inexistants")
     void test_processOrderWithInvalidIds() {
 
         OrderRequest request = new OrderRequest(
@@ -60,6 +63,7 @@ class OrderServiceTest {
     }
 
     @Test
+    @DisplayName("Doit ignorer les produits en rupture de stock")
     void test_processOrderWithoutStock() {
 
         OrderRequest request = new OrderRequest(
@@ -77,6 +81,7 @@ class OrderServiceTest {
     }
 
     @Test
+    @DisplayName("Doit appliquer les remises correctes selon la catégorie produit")
     void test_processOrderWithDiscounts() {
 
         OrderRequest request = new OrderRequest(
@@ -120,6 +125,7 @@ class OrderServiceTest {
     }
 
     @Test
+    @DisplayName("Doit retourner une commande FAILED si le traitement dépasse le timeout")
     void test_processOrderTimeout() {
 
         OrderService slowService = new OrderService(new SlowProductRepository());
@@ -139,6 +145,7 @@ class OrderServiceTest {
     }
 
     @Test
+    @DisplayName("Doit continuer à produire des commandes même si le repository génère des erreurs")
     void test_processOrderWithErrors() {
 
         ProductRepository flakyRepo = new ProductRepository(0.5);
