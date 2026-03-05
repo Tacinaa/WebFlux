@@ -17,6 +17,8 @@ public class ProductRepository {
     // bonus : taux d'erreur
     private final double errorRate;
 
+    private final Map<String, Mono<Product>> productCache = new HashMap<>();
+
     public ProductRepository() {
         this(0.10);
     }
@@ -38,7 +40,7 @@ public class ProductRepository {
                     new Product("PROD002",
                             "Montre Connectée Sport",
                             new BigDecimal("179.90"),
-                            0, // rupture pour les tests
+                            0,
                             "Électronique"));
 
             products.put("PROD003",
@@ -63,10 +65,22 @@ public class ProductRepository {
                             "Électronique"));
     }
 
+//    public Mono<Product> findById(String id) {
+//        return Mono.defer(() -> maybeFail()
+//                        .then(Mono.justOrEmpty(products.get(id))))
+//                .delayElement(dbLatency);
+//    }
+
     public Mono<Product> findById(String id) {
-        return Mono.defer(() -> maybeFail()
-                        .then(Mono.justOrEmpty(products.get(id))))
-                .delayElement(dbLatency);
+        if (id == null) return Mono.empty();
+
+        // Bonus B
+        return productCache.computeIfAbsent(id, key ->
+                Mono.defer(() -> maybeFail()
+                                .then(Mono.justOrEmpty(products.get(key))))
+                        .delayElement(dbLatency)
+                        .cache()
+        );
     }
 
     public Mono<Integer> getStock(String productId) {
