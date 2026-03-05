@@ -1,7 +1,7 @@
 package com.example.tppipelinereactif.repository;
 
 import com.example.tppipelinereactif.model.Product;
-//import reactor.core.publisher.Flux;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import java.math.BigDecimal;
 import java.time.Duration;
@@ -81,6 +81,12 @@ public class ProductRepository {
                         .delayElement(dbLatency)
                         .cache()
         );
+    }
+
+    public Flux<Product> findByIds(List<String> ids) {
+        return Flux.just(ids)
+                .flatMapIterable(list -> list)
+                .flatMap(this::findById);
     }
 
     public Mono<Integer> getStock(String productId) {
