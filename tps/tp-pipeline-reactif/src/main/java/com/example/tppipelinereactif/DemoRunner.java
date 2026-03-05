@@ -4,7 +4,7 @@ import com.example.tppipelinereactif.model.OrderRequest;
 import com.example.tppipelinereactif.repository.ProductRepository;
 import com.example.tppipelinereactif.service.OrderService;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
+//import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
