@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.foodexpress</groupId>
-	<artifactId>exercices</artifactId>
+	<artifactId>exercices_1-10</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>exercices</name>
 	<description>exercices</description>
