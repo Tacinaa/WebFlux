@@ -1,0 +1,47 @@
+# Exercice 12 : Orders
+
+###
+# @name POST create order
+POST http://localhost:8080/api/orders
+Content-Type: application/json
+
+{
+  "customerName": "Marth",
+  "totalAmount": 120.5
+}
+
+###
+# @name GET all orders
+GET http://localhost:8080/api/orders
+
+###
+# @name GET order by id
+GET http://localhost:8080/api/orders/1
+
+###
+# @name PUT update status
+PUT http://localhost:8080/api/orders/1
+Content-Type: application/json
+
+{
+  "status": "SHIPPED"
+}
+
+###
+# @name DELETE order
+DELETE http://localhost:8080/api/orders/1
+
+###
+# @name GET orders SHIPPED
+GET http://localhost:8080/api/orders/search?
+    status=SHIPPED
+
+###
+# @name GET orders by customer
+GET http://localhost:8080/api/orders/customer/Marth
+
+###
+# @name GET paged orders
+GET http://localhost:8080/api/orders/paged?
+    page=0&
+    size=5
