@@ -1,0 +1,10 @@
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5434/products_db
+    username: postgres
+    password: postgres
+
+  sql:
+    init:
+      schema-locations: classpath:schema.sql
+      mode: always

@@ -1,0 +1,51 @@
+# Exercice 13 : Products
+
+###
+# @name POST product
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "PC Lenovo",
+  "price": 1100.99,
+  "stock": 10
+}
+
+###
+# @name GET all products
+GET http://localhost:8080/api/products
+
+###
+# @name PUT update product by id
+PUT http://localhost:8080/api/products/1
+Content-Type: application/json
+
+{
+  "name": "PC Lenovo updated",
+  "price": 1000.99,
+  "stock": 10
+}
+
+###
+# @name DELETE product
+DELETE http://localhost:8080/api/products/1
+
+###
+# @name GET product by name
+GET http://localhost:8080/api/products/search?
+    name=pc
+
+###
+# @name PUT buy product
+PUT http://localhost:8080/api/products/2/buy?
+    quantity=3
+
+###
+# @name PUT stock error
+PUT http://localhost:8080/api/products/2/buy?
+    quantity=100
+
+###
+# @name PUT quantity<0 error
+PUT http://localhost:8080/api/products/2/buy?
+    quantity=0
