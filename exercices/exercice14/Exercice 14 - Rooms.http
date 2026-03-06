@@ -1,0 +1,37 @@
+# Exercice 14 : Rooms
+
+###
+# @name GET test UNAUTHORIZED
+GET http://localhost:8080/api/rooms
+
+###
+# @name GET auth user
+GET http://localhost:8080/api/rooms
+Authorization: Basic user password
+
+###
+# @name POST room FORBIDDEN
+POST http://localhost:8080/api/rooms
+Authorization: Basic user password
+Content-Type: application/json
+
+{
+  "name": "Salle A",
+  "capacity": 10
+}
+
+###
+# @name GET auth admin
+GET http://localhost:8080/api/rooms
+Authorization: Basic admin admin
+
+###
+# @name POST room ok
+POST http://localhost:8080/api/rooms
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "name": "Salle A",
+  "capacity": 10
+}
